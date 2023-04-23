@@ -1,15 +1,27 @@
-import { Box, Button, TextField, Typography } from '@mui/material'
+import { Box, Container, TextField } from '@mui/material'
+import { DatePicker } from '@mui/x-date-pickers'
 
 export default function Home(): JSX.Element {
   return (
-    <>
-      <Box bgcolor="red" width={300} height={300}>
-        <Typography color="white" variant="h4">
-          HOLA A TODOS
-        </Typography>
+    <Container>
+      <Box display="flex" justifyContent="center">
+        <Box
+          display="flex"
+          mt={20}
+          flexDirection="column"
+          gap={2}
+          width="80%"
+          bgcolor="whitesmoke"
+          p={3}
+          justifyContent="center"
+          alignItems="center"
+        >
+          <DatePicker />
+          <TextField label="Placa del carro" inputProps={{ style: { textAlign: 'center' } }} />
+          <TextField label="Dueño del carro" inputProps={{ style: { textAlign: 'center' } }} />
+          <TextField label="Trabajo realizado" inputProps={{ style: { textAlign: 'center' } }} />
+        </Box>
       </Box>
-      <Button> HOLA</Button>
-      <TextField label="INGRESA ALGO" />
-    </>
+    </Container>
   )
 }
