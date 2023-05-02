@@ -16,10 +16,12 @@
     "incremental": true,
     "baseUrl": "./src",
     "paths": {
-      "@/*": ["./src/*"],
       "@styles/*": ["styles/*"],
-      "@componentes/*": ["componentes/*"],
+      "@modules/*": ["modules/*"],
+      "@user/*": ["modules/user/*"],
+      "@dashboard/*": ["modules/dashboard/*"],
       "@theme/*": ["theme/*"],
+      "@lib/*": ["lib/*"],
 
     }
   },
