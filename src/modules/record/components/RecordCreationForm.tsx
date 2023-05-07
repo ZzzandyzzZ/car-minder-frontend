@@ -1,7 +1,7 @@
 import { Box, Container, TextField } from '@mui/material'
 import { DatePicker } from '@mui/x-date-pickers'
 import { useRouter } from 'next/navigation'
-export function ServiceRegistrationForm() {
+export function RecordCreationForm(): JSX.Element {
   const { push } = useRouter()
   return (
     <Container>
@@ -19,6 +19,9 @@ export function ServiceRegistrationForm() {
           label="Placa del carro"
           inputProps={{ style: { textAlign: 'center' } }}
           fullWidth
+          onClick={() => {
+            push('/dashboard/car/create')
+          }}
         />
         <TextField
           label="Dueño del carro"
@@ -28,13 +31,16 @@ export function ServiceRegistrationForm() {
             shrink: false,
           }}
           onClick={() => {
-            push('/record/registration/user')
+            push('/dashboard/user/create')
           }}
         />
         <TextField
           label="Trabajo realizado"
           inputProps={{ style: { textAlign: 'center' } }}
           fullWidth
+          onClick={() => {
+            push('/dashboard/service/create')
+          }}
         />
       </Box>
     </Container>
