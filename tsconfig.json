@@ -16,12 +16,13 @@
     "incremental": true,
     "baseUrl": "./src",
     "paths": {
-      "@styles/*": ["styles/*"],
-      "@modules/*": ["modules/*"],
-      "@user/*": ["modules/user/*"],
-      "@dashboard/*": ["modules/dashboard/*"],
-      "@theme/*": ["theme/*"],
-      "@lib/*": ["lib/*"],
+      "@lib/*":     ["lib/*"],
+      "@styles/*":  ["styles/*"],
+      "@theme/*":   ["theme/*"],
+      "@car/*":     ["modules/car/*"],
+      "@record/*":  ["modules/record/*"],
+      "@service/*": ["modules/service/*"],
+      "@user/*":    ["modules/user/*"],
 
     }
   },
