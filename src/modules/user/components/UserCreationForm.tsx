@@ -1,6 +1,6 @@
 import { TextField } from '@mui/material'
 
-export function ServiceUserForm(): JSX.Element {
+export function UserCreationForm(): JSX.Element {
   return (
     <>
       <TextField label="Nombre" inputProps={{ style: { textAlign: 'center' } }} fullWidth />
