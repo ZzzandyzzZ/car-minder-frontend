@@ -23,7 +23,7 @@
       "@record/*":  ["modules/record/*"],
       "@service/*": ["modules/service/*"],
       "@user/*":    ["modules/user/*"],
-
+      "@layouts/*":    ["modules/common/layouts/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
