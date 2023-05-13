@@ -5,7 +5,13 @@ export function ServiceCreationForm(): JSX.Element {
     <>
       <TextField label="Tipo" inputProps={{ style: { textAlign: 'center' } }} fullWidth />
       <TextField label="Autoparte" inputProps={{ style: { textAlign: 'center' } }} fullWidth />
-      <TextField label="Descripción" inputProps={{ style: { textAlign: 'center' } }} fullWidth />
+      <TextField
+        label="Descripción"
+        inputProps={{ style: { textAlign: 'center' } }}
+        fullWidth
+        multiline
+        rows={4}
+      />
     </>
   )
 }

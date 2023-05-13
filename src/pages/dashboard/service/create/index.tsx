@@ -1,5 +1,10 @@
+import { DashboardLayout } from '@layouts/dashboard/DashboardLayout'
 import { ServiceCreationForm } from '@service/components'
 
 export default function ServiceCreationPage(): JSX.Element {
-  return <ServiceCreationForm />
+  return (
+    <DashboardLayout>
+      <ServiceCreationForm />
+    </DashboardLayout>
+  )
 }

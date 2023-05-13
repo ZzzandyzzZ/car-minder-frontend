@@ -10,6 +10,7 @@ import blueTheme from '@theme/blueTheme'
 import createEmotionCache from '@theme/createEmotionCache'
 
 import '@fontsource/roboto/700.css'
+import 'global.css'
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache()

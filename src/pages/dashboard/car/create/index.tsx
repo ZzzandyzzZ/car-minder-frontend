@@ -1,5 +1,10 @@
 import { CarCreationForm } from '@car/components'
+import { DashboardLayout } from '@layouts/dashboard/DashboardLayout'
 
 export default function CarCreationPage(): JSX.Element {
-  return <CarCreationForm />
+  return (
+    <DashboardLayout>
+      <CarCreationForm />
+    </DashboardLayout>
+  )
 }
