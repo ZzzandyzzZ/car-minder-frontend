@@ -2,6 +2,8 @@ import { useRouter } from 'next/navigation'
 import { Box, Button, TextField } from '@mui/material'
 import { DatePicker } from '@mui/x-date-pickers'
 import { useFormik } from 'formik'
+import { useSelector } from 'react-redux'
+import { CenteredInput, CenteredDatePicker } from 'modules/common/ui/CenteredInput'
 
 const initialValues = {
   date: '',
@@ -11,61 +13,46 @@ const initialValues = {
 }
 export function RecordCreationForm(): JSX.Element {
   const { push } = useRouter()
-  const formik = useFormik({
-    initialValues,
-    onSubmit: (values) => {
-      console.log(JSON.stringify(values, null, 2))
-    },
-  })
+  const { carId, user, service } = useSelector((state) => state.record)
   return (
-    <Box component="form" onSubmit={formik.handleSubmit}>
-      <DatePicker label="Fecha" slotProps={{ textField: { fullWidth: true } }} />
-      <TextField
-        id="carId"
-        label="Placa del carro"
-        name="carId"
-        value={formik.values.carId}
-        onChange={formik.handleChange}
-        error={true}
-        helperText="requerido"
-        inputProps={{ style: { textAlign: 'center' } }}
-        fullWidth
-        // disabled
-        // onClick={() => {
-        //   push('/dashboard/car/create')
-        // }}
+    <>
+      <DatePicker
+        label={carId != null ? 'Fecha' : null}
+        slotProps={{
+          textField: {
+            fullWidth: true,
+            inputProps: { style: { textAlign: 'center' } },
+            placeholder: 'Fecha MM/DD/YY',
+          },
+        }}
       />
-      <TextField
+      <CenteredInput
+        placeholder="Placa del carro"
+        value={carId}
+        label={carId != null ? 'Placa del carro' : null}
+        onClick={() => {
+          push('/dashboard/car/search')
+        }}
+      />
+      <CenteredInput
         id="user"
         label="Dueño del carro"
         name="user"
-        value={formik.values.user}
-        onChange={formik.handleChange}
-        error={true}
-        helperText="requerido"
-        inputProps={{ style: { textAlign: 'center' } }}
-        fullWidth
+        value={user}
         onClick={() => {
           push('/dashboard/user/create')
         }}
         disabled
       />
-      <TextField
-        id="service"
+      <CenteredInput
         label="Trabajo realizado"
-        name="service"
-        value={formik.values.service}
-        onChange={formik.handleChange}
-        error={true}
-        helperText="requerido"
-        inputProps={{ style: { textAlign: 'center' } }}
-        fullWidth
+        value={service}
         disabled
         onClick={() => {
           push('/dashboard/service/create')
         }}
       />
       <Button type="submit">Registrar</Button>
-    </Box>
+    </>
   )
 }
