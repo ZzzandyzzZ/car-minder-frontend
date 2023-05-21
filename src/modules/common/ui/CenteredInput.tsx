@@ -12,13 +12,3 @@ export const CenteredInput = styled(TextField)`
     width: 100%;
   }
 `
-export const CenteredDatePicker = styled(DatePicker)`
-  && {
-    input {
-      text-align: center;
-      caret-color: transparent;
-      cursor: pointer;
-    }
-    width: 100%;
-  }
-`
