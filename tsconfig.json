@@ -19,11 +19,12 @@
       "@lib/*":     ["lib/*"],
       "@styles/*":  ["styles/*"],
       "@theme/*":   ["theme/*"],
+      "@slices/*":  ["store/slices/*"],
       "@car/*":     ["modules/car/*"],
       "@record/*":  ["modules/record/*"],
       "@service/*": ["modules/service/*"],
       "@user/*":    ["modules/user/*"],
-      "@layouts/*":    ["modules/common/layouts/*"],
+      "@layouts/*": ["modules/common/layouts/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
