@@ -11,6 +11,8 @@ import createEmotionCache from '@theme/createEmotionCache'
 
 import '@fontsource/roboto/700.css'
 import 'global.css'
+import { Provider } from 'react-redux'
+import { store } from 'store/store'
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache()
@@ -20,8 +22,10 @@ export default function CarMinderApp({ Component, pageProps }: AppProps): JSX.El
     <CacheProvider value={clientSideEmotionCache}>
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <ThemeProvider theme={blueTheme}>
-          <CssBaseline />
-          <Component {...pageProps} />
+          <Provider store={store}>
+            <CssBaseline />
+            <Component {...pageProps} />
+          </Provider>
         </ThemeProvider>
       </LocalizationProvider>
     </CacheProvider>
