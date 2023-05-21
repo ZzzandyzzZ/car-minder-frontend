@@ -1,30 +1,41 @@
 import { Box, TextField } from '@mui/material'
 import { useFormik } from 'formik'
+import { useAppDispatch, useAppSelector } from 'store/hooks'
+import { setCarId } from '@slices/recordSlice'
 
 const initialValues = {
+  carId: '',
   brand: '',
   model: '',
   year: '',
   color: '',
   observations: '',
 }
-export function CarCreationForm(): JSX.Element {
+export function CarCreateForm(): JSX.Element {
+  const dispatch = useAppDispatch()
+  const { carId } = useAppSelector((state) => state.record)
   const formik = useFormik({
     initialValues,
     onSubmit: (values) => {
       console.log(JSON.stringify(values, null, 2))
     },
   })
+  const handleChange = (event): void => {
+    dispatch(setCarId(event.target.value))
+  }
   return (
     <Box component="form" onSubmit={formik.handleSubmit}>
       <TextField
-        id="brand"
-        name="brand"
+        label="Placa del carro"
+        value={carId}
+        inputProps={{ style: { textAlign: 'center' } }}
+        onChange={handleChange}
+        fullWidth
+      />
+      <TextField
         label="Marca"
         value={formik.values.brand}
-        onChange={formik.handleChange}
-        error={true}
-        helperText="requerido"
+        onChange={handleChange}
         inputProps={{ style: { textAlign: 'center' } }}
         fullWidth
       />
