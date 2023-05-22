@@ -1,7 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const initialState = {
-  carId: null,
+export const initialState = {
+  carId: '',
+  user: '',
+  date: new Date().getTime(),
 }
 export const recordSlice = createSlice({
   name: 'record',
@@ -10,7 +12,13 @@ export const recordSlice = createSlice({
     setCarId: (state, { payload }) => {
       state.carId = payload
     },
+    setUserData: (state, { payload }) => {
+      state.user = payload
+    },
+    setDate: (state, { payload }) => {
+      state.date = payload
+    },
   },
 })
 
-export const { setCarId } = recordSlice.actions
+export const { setCarId, setDate, setUserData } = recordSlice.actions
