@@ -25,6 +25,7 @@
       "@service/*": ["modules/service/*"],
       "@user/*":    ["modules/user/*"],
       "@layouts/*": ["modules/common/layouts/*"],
+      "@ui/*": ["modules/common/ui/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
