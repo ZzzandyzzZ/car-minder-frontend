@@ -1,53 +1,47 @@
 import { useRouter } from 'next/navigation'
-import { Box, Button, TextField } from '@mui/material'
-import { DatePicker } from '@mui/x-date-pickers'
-import { useFormik } from 'formik'
-import { useSelector } from 'react-redux'
-import { CenteredInput, CenteredDatePicker } from 'modules/common/ui/CenteredInput'
+import { Button } from '@mui/material'
+import { MobileDatePicker } from '@mui/x-date-pickers'
 
-const initialValues = {
-  date: '',
-  carId: '',
-  user: '',
-  service: '',
-}
+import { CenteredInput } from '@ui/CenteredInput'
+import { useAppDispatch, useAppSelector } from 'store/hooks'
+import { initialState, setDate } from '@slices/recordSlice'
+import { RecordInput } from './RecordInput'
+
 export function RecordCreationForm(): JSX.Element {
   const { push } = useRouter()
-  const { carId, user, service } = useSelector((state) => state.record)
+  const dispatch = useAppDispatch()
+  const { carId, user, date } = useAppSelector((state) => state.record)
+  const { carId: initCarId, user: initUser } = initialState
   return (
     <>
-      <DatePicker
-        label={carId != null ? 'Fecha' : null}
+      <MobileDatePicker
+        label={date != null ? 'Fecha' : null}
+        value={new Date(date)}
         slotProps={{
           textField: {
             fullWidth: true,
             inputProps: { style: { textAlign: 'center' } },
-            placeholder: 'Fecha MM/DD/YY',
+            placeholder: 'Fecha',
           },
         }}
+        onChange={(newValue: Date | null) => {
+          dispatch(setDate(newValue?.getTime()))
+        }}
       />
-      <CenteredInput
-        placeholder="Placa del carro"
+      <RecordInput
         value={carId}
-        label={carId != null ? 'Placa del carro' : null}
-        onClick={() => {
-          push('/dashboard/car/search')
-        }}
+        label={'Placa del carro'}
+        initialValue={initCarId}
+        redirect={'/dashboard/car/search'}
       />
-      <CenteredInput
-        id="user"
-        label="Dueño del carro"
-        name="user"
+      <RecordInput
         value={user}
-        onClick={() => {
-          push('/dashboard/user/create')
-        }}
-        disabled
+        label={'Dueño del carro'}
+        initialValue={initUser}
+        redirect={'/dashboard/user/search'}
       />
       <CenteredInput
-        label="Trabajo realizado"
-        value={service}
-        disabled
+        placeholder="Trabajo realizado"
         onClick={() => {
           push('/dashboard/service/create')
         }}
