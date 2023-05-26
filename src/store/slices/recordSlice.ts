@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 export const initialState = {
   carId: '',
-  user: '',
+  user: { label: '', id: '' },
   date: new Date().getTime(),
 }
 export const recordSlice = createSlice({
