@@ -2,12 +2,12 @@ import { useRouter } from 'next/navigation'
 import { Button } from '@mui/material'
 import { MobileDatePicker } from '@mui/x-date-pickers'
 
-import { CenteredInput } from '@ui/CenteredInput'
-import { useAppDispatch, useAppSelector } from 'store/hooks'
+import { CenteredInput } from '@ui'
 import { initialState, setDate } from '@slices/recordSlice'
 import { RecordInput } from './RecordInput'
+import { useAppDispatch, useAppSelector } from 'store/hooks'
 
-export function RecordCreationForm(): JSX.Element {
+export function RecordCreateForm(): JSX.Element {
   const { push } = useRouter()
   const dispatch = useAppDispatch()
   const { carId, user, date } = useAppSelector((state) => state.record)
@@ -35,9 +35,9 @@ export function RecordCreationForm(): JSX.Element {
         redirect={'/dashboard/car/search'}
       />
       <RecordInput
-        value={user}
+        value={user.label}
         label={'Dueño del carro'}
-        initialValue={initUser}
+        initialValue={initUser.label}
         redirect={'/dashboard/user/search'}
       />
       <CenteredInput
