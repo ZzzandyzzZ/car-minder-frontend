@@ -1,1 +1,1 @@
-export * from './RecordCreationForm'
+export * from './RecordCreateForm'
