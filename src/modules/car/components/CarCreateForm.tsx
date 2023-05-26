@@ -9,7 +9,7 @@ const initialValues = {
   model: '',
   year: '',
   color: '',
-  observations: '',
+  mileage: '',
 }
 export function CarCreateForm(): JSX.Element {
   const dispatch = useAppDispatch()
@@ -73,10 +73,10 @@ export function CarCreateForm(): JSX.Element {
         fullWidth
       />
       <TextField
-        id="observations"
-        label="Observaciones"
-        name="observations"
-        value={formik.values.observations}
+        id="mileage"
+        label="Kilometraje"
+        name="mileage"
+        value={formik.values.mileage}
         onChange={formik.handleChange}
         error={true}
         helperText="requerido"
