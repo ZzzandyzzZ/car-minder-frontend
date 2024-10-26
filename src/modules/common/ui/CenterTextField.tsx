@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 interface CenterTextFieldProps {
   label: string
 }
-export default function CenterTextField({ label }: CenterTextFieldProps): JSX.Element {
+export function CenterTextField({ label }: CenterTextFieldProps): JSX.Element {
   const [labelWidth, setLabelWidth] = useState('fit-content')
   const labelRef = useRef<HTMLLabelElement>(null)
 
